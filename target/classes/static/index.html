@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chronicles of Middle-earth's Heroes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>The Chronicles of Middle-earth's Heroes</h1>
+        <p>Manage the brave souls embarking on their perilous quests across the lands.</p>
+    </header>
+
+    <main>
+        <section class="section-card create-hero">
+            <h2>Enlist New Companion</h2>
+            <div class="form-group">
+                <label for="createHeroName">Hero's Name:</label>
+                <input type="text" id="createHeroName" placeholder="e.g., Frodo Baggins">
+            </div>
+            <div class="form-group">
+                <label for="createHeroImageUrl">Hero's Image URL (Optional):</label>
+                <input type="text" id="createHeroImageUrl" placeholder="e.g., https://example.com/frodo.jpg">
+            </div>
+            <button onclick="createHero()">Forge New Hero</button>
+            <div id="createHeroMessage" class="message"></div>
+        </section>
+
+        <section class="section-card view-heroes">
+            <h2>Behold the Fellowship</h2>
+            <button onclick="getAllHeros()">Journey's Roster</button>
+            <div id="heroList" class="hero-list">
+                </div>
+            <div id="getHerosMessage" class="message"></div>
+        </section>
+
+        <section class="section-card update-hero">
+            <h2>Reforge a Companion's Fate</h2>
+            <div class="form-group">
+                <label for="updateHeroId">Hero's Scroll ID:</label>
+                <input type="number" id="updateHeroId" placeholder="ID of Hero to update">
+            </div>
+            <div class="form-group">
+                <label for="updateHeroName">New Hero's Name:</label>
+                <input type="text" id="updateHeroName" placeholder="e.g., Gandalf the White">
+            </div>
+            <div class="form-group">
+                <label for="updateHeroImageUrl">New Hero's Image URL (Optional):</label>
+                <input type="text" id="updateHeroImageUrl" placeholder="e.g., https://example.com/gandalf.jpg">
+            </div>
+            <button onclick="updateHero()">Update Hero's Saga</button>
+            <div id="updateHeroMessage" class="message"></div>
+        </section>
+
+        <section class="section-card banish-hero">
+            <h2>Banish from the Realms</h2>
+            <div class="form-group">
+                <label for="deleteHeroId">Hero's Scroll ID:</label>
+                <input type="number" id="deleteHeroId" placeholder="ID of Hero to banish">
+            </div>
+            <button onclick="deleteHero()">Send to the Undying Lands</button>
+            <div id="deleteHeroMessage" class="message"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 The Loremaster's Archives of Middle-earth</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
