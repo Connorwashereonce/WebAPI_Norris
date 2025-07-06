@@ -1,0 +1,269 @@
+/* Lord of the Rings Theme Styling */
+
+:root {
+    --primary-color: #4A6D5A; /* Deep Forest Green */
+    --secondary-color: #A38C6F; /* Earthy Brown/Tan */
+    --accent-color: #D4AF37; /* Gold */
+    --text-color: #E0E0E0; /* Light Grey for readability */
+    --dark-text-color: #333;
+    --background-dark: #2F3C2F; /* Darker Green/Grey */
+    --background-light: #5A7F6A; /* Lighter Green */
+    --border-color: #7A5C39; /* Rich Brown */
+    --card-background: rgba(47, 60, 47, 0.9); /* Slightly transparent dark green */
+}
+
+body {
+    font-family: 'Merriweather', serif; /* For main text, classic and readable */
+    background: linear-gradient(to bottom, var(--background-dark), var(--background-light));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif; /* For titles, elegant and epic */
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-top: 30px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 5px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    width: 80%;
+    max-width: 900px;
+}
+
+header p {
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adjusted min-width for more cards */
+    gap: 30px;
+    width: 100%;
+    max-width: 1400px; /* Increased max-width to accommodate more columns */
+    padding-bottom: 50px;
+}
+
+.section-card {
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--text-color);
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 80px;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 2px solid var(--accent-color);
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    margin: 5px; /* Added margin for multiple buttons in a row */
+}
+
+button:hover {
+    background-color: #5B846D; /* Slightly lighter green */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    font-style: italic;
+    color: var(--accent-color);
+}
+
+.message.success {
+    background-color: rgba(100, 180, 100, 0.2);
+    border: 1px solid rgba(100, 180, 100, 0.5);
+}
+
+.message.error {
+    background-color: rgba(180, 100, 100, 0.2);
+    border: 1px solid rgba(180, 100, 100, 0.5);
+}
+
+.entity-list { /* Generic class for all lists (heroes, teams, quests) */
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.entity-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Styles for individual list items */
+.entity-list li {
+    background-color: rgba(255, 255, 255, 0.08);
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 3px solid var(--accent-color);
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.entity-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: var(--text-color);
+    min-width: 150px; /* Ensure info doesn't get too squished */
+}
+
+.entity-info span {
+    word-break: break-word; /* Break long words/URLs */
+}
+
+.entity-image-container {
+    margin-left: 15px;
+    flex-shrink: 0;
+}
+
+.entity-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Specific styling for relationship section buttons */
+.relationship-section button {
+    width: calc(50% - 10px); /* Two buttons per row */
+    box-sizing: border-box;
+}
+@media (max-width: 600px) {
+    .relationship-section button {
+        width: 100%; /* Stack buttons on very small screens */
+    }
+}
+
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 0.9em;
+    padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    main {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Allow 2 columns on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr; /* Stack all sections on mobile */
+        padding: 0 15px;
+    }
+
+    header {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .section-card {
+        padding: 20px;
+    }
+
+    .entity-list li {
+        flex-direction: column; /* Stack image and info on small screens */
+        align-items: flex-start;
+    }
+    .entity-image-container {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}

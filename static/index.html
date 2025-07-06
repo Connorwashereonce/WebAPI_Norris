@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chronicles of Middle-earth's Grand Saga</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a more thematic look -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>The Chronicles of Middle-earth's Grand Saga</h1>
+        <p>Manage the brave Heroes, mighty Teams, and epic Quests across the realms.</p>
+    </header>
+
+    <main>
+        <!-- Heroes Section -->
+        <section class="section-card entity-section hero-section">
+            <h2>Heroes of the Free Peoples</h2>
+            <div class="form-group">
+                <label for="createHeroName">Hero's Name:</label>
+                <input type="text" id="createHeroName" placeholder="e.g., Aragorn">
+            </div>
+            <div class="form-group">
+                <label for="createHeroImageUrl">Hero's Image URL (Optional):</label>
+                <input type="text" id="createHeroImageUrl" placeholder="e.g., https://example.com/aragorn.jpg">
+            </div>
+            <div class="form-group">
+                <label for="createHeroTeamId">Assign to Team (ID, Optional):</label>
+                <input type="number" id="createHeroTeamId" placeholder="e.g., 1 (Fellowship)">
+            </div>
+            <button onclick="createHero()">Forge New Hero</button>
+            <div id="createHeroMessage" class="message"></div>
+
+            <h3>All Heroes</h3>
+            <button onclick="getAllHeroes()">View Hero Roster</button>
+            <div id="heroList" class="entity-list">
+                <!-- Heroes will be listed here -->
+            </div>
+            <div id="getHeroesMessage" class="message"></div>
+
+            <h3>Update Hero's Saga</h3>
+            <div class="form-group">
+                <label for="updateHeroId">Hero's ID:</label>
+                <input type="number" id="updateHeroId" placeholder="ID of Hero to update">
+            </div>
+            <div class="form-group">
+                <label for="updateHeroName">New Name:</label>
+                <input type="text" id="updateHeroName" placeholder="e.g., Gandalf the White">
+            </div>
+            <div class="form-group">
+                <label for="updateHeroImageUrl">New Image URL (Optional):</label>
+                <input type="text" id="updateHeroImageUrl" placeholder="e.g., https://example.com/gandalf_white.jpg">
+            </div>
+            <div class="form-group">
+                <label for="updateHeroTeamId">New Team ID (Optional, 0 to unassign):</label>
+                <input type="number" id="updateHeroTeamId" placeholder="e.g., 2 (Elven Guard)">
+            </div>
+            <button onclick="updateHero()">Update Hero</button>
+            <div id="updateHeroMessage" class="message"></div>
+
+            <h3>Banish Hero</h3>
+            <div class="form-group">
+                <label for="deleteHeroId">Hero's ID:</label>
+                <input type="number" id="deleteHeroId" placeholder="ID of Hero to banish">
+            </div>
+            <button onclick="deleteHero()">Send to the Undying Lands</button>
+            <div id="deleteHeroMessage" class="message"></div>
+        </section>
+
+        <!-- Teams Section -->
+        <section class="section-card entity-section team-section">
+            <h2>Mighty Teams of Middle-earth</h2>
+            <div class="form-group">
+                <label for="createTeamName">Team Name:</label>
+                <input type="text" id="createTeamName" placeholder="e.g., Fellowship of the Ring">
+            </div>
+            <div class="form-group">
+                <label for="createTeamMotto">Team Motto (Optional):</label>
+                <input type="text" id="createTeamMotto" placeholder="e.g., 'One Ring to rule them all'">
+            </div>
+            <button onclick="createTeam()">Form New Team</button>
+            <div id="createTeamMessage" class="message"></div>
+
+            <h3>All Teams</h3>
+            <button onclick="getAllTeams()">View All Teams</button>
+            <div id="teamList" class="entity-list">
+                <!-- Teams will be listed here -->
+            </div>
+            <div id="getTeamsMessage" class="message"></div>
+
+            <h3>Update Team's Banner</h3>
+            <div class="form-group">
+                <label for="updateTeamId">Team ID:</label>
+                <input type="number" id="updateTeamId" placeholder="ID of Team to update">
+            </div>
+            <div class="form-group">
+                <label for="updateTeamName">New Team Name:</label>
+                <input type="text" id="updateTeamName" placeholder="e.g., The Grey Company">
+            </div>
+            <div class="form-group">
+                <label for="updateTeamMotto">New Team Motto (Optional):</label>
+                <input type="text" id="updateTeamMotto" placeholder="e.g., 'For Frodo!'">
+            </div>
+            <button onclick="updateTeam()">Update Team</button>
+            <div id="updateTeamMessage" class="message"></div>
+
+            <h3>Disband Team</h3>
+            <div class="form-group">
+                <label for="deleteTeamId">Team ID:</label>
+                <input type="number" id="deleteTeamId" placeholder="ID of Team to disband">
+            </div>
+            <button onclick="deleteTeam()">Disband Team</button>
+            <div id="deleteTeamMessage" class="message"></div>
+        </section>
+
+        <!-- Quests Section -->
+        <section class="section-card entity-section quest-section">
+            <h2>Epic Quests of the Age</h2>
+            <div class="form-group">
+                <label for="createQuestName">Quest Name:</label>
+                <input type="text" id="createQuestName" placeholder="e.g., Destroy the One Ring">
+            </div>
+            <div class="form-group">
+                <label for="createQuestDescription">Quest Description:</label>
+                <textarea id="createQuestDescription" placeholder="e.g., Journey to Mordor and cast the Ring into Mount Doom."></textarea>
+            </div>
+            <button onclick="createQuest()">Initiate New Quest</button>
+            <div id="createQuestMessage" class="message"></div>
+
+            <h3>All Quests</h3>
+            <button onclick="getAllQuests()">View All Quests</button>
+            <div id="questList" class="entity-list">
+                <!-- Quests will be listed here -->
+            </div>
+            <div id="getQuestsMessage" class="message"></div>
+
+            <h3>Update Quest Details</h3>
+            <div class="form-group">
+                <label for="updateQuestId">Quest ID:</label>
+                <input type="number" id="updateQuestId" placeholder="ID of Quest to update">
+            </div>
+            <div class="form-group">
+                <label for="updateQuestName">New Quest Name:</label>
+                <input type="text" id="updateQuestName" placeholder="e.g., Defend Helm's Deep">
+            </div>
+            <div class="form-group">
+                <label for="updateQuestDescription">New Description:</label>
+                <textarea id="updateQuestDescription" placeholder="e.g., Hold the fortress against Saruman's Uruk-hai."></textarea>
+            </div>
+            <button onclick="updateQuest()">Update Quest</button>
+            <div id="updateQuestMessage" class="message"></div>
+
+            <h3>Abandon Quest</h3>
+            <div class="form-group">
+                <label for="deleteQuestId">Quest ID:</label>
+                <input type="number" id="deleteQuestId" placeholder="ID of Quest to abandon">
+            </div>
+            <button onclick="deleteQuest()">Abandon Quest</button>
+            <div id="deleteQuestMessage" class="message"></div>
+        </section>
+
+        <!-- Relationship Management Section -->
+        <section class="section-card relationship-section">
+            <h2>Manage Hero-Quest Assignments</h2>
+            <div class="form-group">
+                <label for="assignHeroId">Hero ID:</label>
+                <input type="number" id="assignHeroId" placeholder="ID of Hero">
+            </div>
+            <div class="form-group">
+                <label for="assignQuestId">Quest ID:</label>
+                <input type="number" id="assignQuestId" placeholder="ID of Quest">
+            </div>
+            <button onclick="assignHeroToQuest()">Assign Hero to Quest</button>
+            <button onclick="removeHeroFromQuest()">Remove Hero from Quest</button>
+            <div id="assignQuestMessage" class="message"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 The Loremaster's Archives of Middle-earth - A Saga by Connor</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
